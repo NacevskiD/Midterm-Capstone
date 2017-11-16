@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="{{url_for('static',filename='styles/style.css')}}" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body>
+
+<h3>Time Submission Form</h3>
+
+<div>
+
+    <form action="{{url_for('add_time')}}" method="POST" >                <!-- Your call to action script in whatever language you prefer. -->
+        <label >{{data[0][0]}}</label>
+
+        <label >{{data[0][1]}}</label>
+        <br/>
+        <label>Date: {{date}}</label>
+        <br>
+        <label >Today worked: {{data[0][2]}} hours</label>
+        <br/>
+
+
+        <label for="time-in">Time In</label>
+        <select id="time-in" name="time-in">
+            <option value="null"></option>
+            <option name="8 am" value="08:00AM">08:00AM</option>
+            <option name="9 am" value="09:00AM">09:00AM</option>
+            <option name="10 am" value="10:00AM">10:00AM</option>
+            <option name="11 am" value="11:00AM">11:00AM</option>
+            <option name="12 pm" value="12:00PM">12:00PM</option>
+            <option name="1 pm" value="01:00PM">01:00PM</option>
+            <option name="2 pm" value="02:00PM">02:00PM</option>
+            <option name="3 pm" value="03:00PM">03:00PM</option>
+            <option name="4 pm" value="04:00PM">04:00PM</option>
+            <option name="5 pm" value="05:00PM">05:00PM</option>
+            <option name="6 pm" value="06:00PM">06:00PM</option>
+        </select>
+
+        <label for="time-out">Time Out</label>
+        <select id="time-out" name="time-out">
+            <option value="null"></option>
+            <option name="8 am" value="08:00AM">08:00AM</option>
+            <option name="9 am" value="09:00AM">09:00AM</option>
+            <option name="10 am" value="10:00AM">10:00AM</option>
+            <option name="11 am" value="11:00AM">11:00AM</option>
+            <option name="12 pm" value="12:00PM">12:00PM</option>
+            <option name="1 pm" value="01:00PM">01:00PM</option>
+            <option name="2 pm" value="02:00PM">02:00PM</option>
+            <option name="3 pm" value="03:00PM">03:00PM</option>
+            <option name="4 pm" value="04:00PM">04:00PM</option>
+            <option name="5 pm" value="05:00PM">05:00PM</option>
+            <option name="6 pm" value="06:00PM">06:00PM</option>
+        </select>
+
+        <input type="submit" name="submit" value="Submit">
+        <br>
+        <br>
+
+    </form>
+
+</div>
+</body>
+</html>

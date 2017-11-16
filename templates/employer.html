@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="{{ url_for('static',filename='styles/employer.css') }}" rel="stylesheet" type="text/css" media="all">
+    <meta charset="UTF-8">
+    <title>Supervisor</title>
+
+
+</head>
+<body>
+<h1>Employee List</h1>
+<form class="employeeList" action="{{url_for('deleteOrAdd') }}" method="POST">
+<table style="width:100%">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Phone</th>
+        <th>Supervisor</th>
+        <th>Hours</th>
+    </tr>
+    {% for employee in employees %}
+    <tr>
+        <td>{{employee[0]}}</td>
+        <td>{{employee[1]}}</td>
+        <td>{{employee[2]}}</td>
+        <td>{{employee[3]}}</td>
+        <td>{{employee[5]}}</td>
+        <td>{{employee[6]}}</td>
+        <td>{{employee[7]}}</td>
+
+    </tr>
+    {% endfor %}
+
+    </table>
+    <div class="delete">
+        <input type="text" name="deleteID" placeholder="ID">
+        <br>
+        <input type="submit" name="submit" value="Delete">
+    </div>
+    <div class="add">
+        <input type="text" name="firstName" placeholder="First Name">
+        <br>
+        <input type="text" name="lastName" placeholder="Last Name">
+        <br>
+        <input type="text" name="phone" placeholder="Phone">
+        <br>
+
+        <input type="checkbox" name="supervisor" value="Supervisor" > Supervisor <br>
+        <input type="hidden" name="supervisor" value="na">
+        <input type="submit" name="submit" value="Add">
+    </div>
+    </form>
+
+
+</body>
+</html>

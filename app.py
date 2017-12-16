@@ -20,21 +20,18 @@ def calculateTime(timeIn,timeOut):
         return int((12 - timeInReal) + timeOutReal)
 
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['POST'])
 def login():
-    session["logged_in"] = False
     error = None
     if request.method == 'POST':
         ifUser, ifAdmin = db.checkLogin(request.form['username'], request.form['password'])
         if ifUser and ifAdmin == 1:
             employees = db.getAll()
-            session["logged_in"] = True
             return render_template('employer.html',employees = employees)
 
         elif ifUser:
             Database.username = request.form['username']
             data = db.getInfo(Database.username)
-            session["logged_in"] = True
             date = datetime.datetime.now().strftime("%y-%m-%d")
             return render_template('employee.html' ,data = data,date = date)
 
@@ -89,5 +86,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.secret_key = os.urandom(12)
     app.run()
